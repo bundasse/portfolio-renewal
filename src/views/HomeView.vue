@@ -5,7 +5,9 @@ const count = ref(0)
 </script>
 
 <template>
-  <div>메인페이지</div>
+  <div>
+    <h2 class="title">메인 페이지</h2>
+  </div>
 </template>
 
 <style>

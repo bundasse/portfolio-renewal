@@ -5,7 +5,9 @@ const count = ref(0)
 </script>
 
 <template>
-  <div>포폴페이지</div>
+  <div>
+    <h2 class="title">포트폴리오</h2>
+  </div>
 </template>
 
 <style>
