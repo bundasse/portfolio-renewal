@@ -1,13 +1,24 @@
 <script setup>
 import { ref } from 'vue'
+import skillList from '../assets/Skill.json';
 
-const count = ref(0)
+const skillData = ref(skillList);
+function getImageUrl(name) {
+  return new URL(`/src/assets/icons/${name}`, import.meta.url).href;
+}
 </script>
 
 <template>
   <div>
     <h2 class="title">프로필</h2>
-    <div class="skills"></div>
+    <div class="skills">
+      <ul>
+        <li v-for="(e,i) in skillData" :key="i">
+          <p><img :src="getImageUrl(e.icon)" :alt="e.name">{{ e.name }}</p>
+          {{ e.desc }}
+        </li>
+      </ul>
+    </div>
     <div class="careers">
       <h4>컴퓨터메이트</h4>
       <p class="workDate">2023.10 -</p>
@@ -19,4 +30,11 @@ const count = ref(0)
 </template>
 
 <style>
+.skills ul{
+  max-width: 600px;
+}
+.skills ul li img{
+  width:20px;
+  height:20px;
+}
 </style>
