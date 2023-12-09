@@ -18,7 +18,7 @@ function sendEmail() {
 </script>
 
 <template>
-  <div>
+  <div class="wrapper">
     <h2 class="title">연락처</h2>
     <form ref="form" @submit.prevent="sendEmail">
       <div>

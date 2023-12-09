@@ -5,8 +5,9 @@ const count = ref(0)
 </script>
 
 <template>
-    <div>
-        <ul class="navBar">
+    <div class="wrapper navBar">
+        <h1>로고</h1>
+        <ul class="navList">
             <li><router-link to="/">처음으로</router-link></li>
             <li><router-link to="/profile">프로필</router-link></li>
             <li><router-link to="/portfolio">포트폴리오</router-link></li>
@@ -18,6 +19,11 @@ const count = ref(0)
 
 <style>
 .navBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navList{
     display: flex;
     gap:40px;
 }

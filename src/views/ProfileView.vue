@@ -9,7 +9,7 @@ function getImageUrl(name) {
 </script>
 
 <template>
-  <div>
+  <div class="wrapper">
     <h2 class="title">프로필</h2>
     <div class="skills">
       <ul>
