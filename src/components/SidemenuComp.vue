@@ -7,7 +7,7 @@ const link = ref([
         {icon:"ico_notion",link:"https://admitted-angle-505.notion.site/246f1b4d37d04595894ebd3670ad2d65",alt:"Notion"}
     ])
 function getImageUrl(name) {
-  return new URL(`/src/assets/icons/${name}`, import.meta.url).href;
+  return new URL(`/src/assets/icons/${name}.png`, import.meta.url).href;
 }
 </script>
 
@@ -22,4 +22,23 @@ function getImageUrl(name) {
 </template>
 
 <style>
+
+.sideMenus li{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: orangered;
+}
+.sideMenus li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sideMenus li a img{
+    width: 30px;
+    height: 30px;
+}
 </style>
