@@ -21,8 +21,16 @@ function getImageUrl(name) {
     </ul>
 </template>
 
-<style>
-
+<style lang="scss">
+.sideMenus{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    gap:4px;
+    z-index: 5;
+}
 .sideMenus li{
     width: 50px;
     height: 50px;
@@ -36,9 +44,16 @@ function getImageUrl(name) {
     display: flex;
     justify-content: center;
     align-items: center;
+    img{
+        width: 30px;
+        height: 30px;
+    }
 }
-.sideMenus li a img{
-    width: 30px;
-    height: 30px;
+@media (max-width: 576px) {
+    .sideMenus{
+        flex-direction: row;
+        right: 20px;
+        bottom: 20px;
+    }
 }
 </style>

@@ -34,7 +34,7 @@ function getImageUrl(name) {
 
 <style>
 .skills ul{
-  max-width: 600px;
+  max-width: 800px;
 }
 .skills ul li img{
   width:20px;

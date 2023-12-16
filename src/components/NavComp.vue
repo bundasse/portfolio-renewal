@@ -2,6 +2,10 @@
 import { ref } from 'vue'
 
 const count = ref(0)
+function mobileNavOn(e) {
+    e.target.classList.toggle('on')
+    
+}
 </script>
 
 <template>
@@ -13,11 +17,17 @@ const count = ref(0)
             <li><router-link to="/portfolio">포트폴리오</router-link></li>
             <li><router-link to="/contact">연락처</router-link></li>
         </ul>
-        <div>토글버튼(darkmode)</div>
+        <div class="toggle">
+            <input type="checkbox" name="btnToggle" id="btnToggle">
+            <label for="btnToggle"></label>
+        </div>
+        <button class="mobileNav" @click="mobileNavOn">
+            <span v-for="e in 3" :key="e"></span>
+        </button>
     </div>
 </template>
 
-<style>
+<style lang="scss">
 .navBar{
     display: flex;
     justify-content: space-between;
@@ -26,5 +36,87 @@ const count = ref(0)
 .navList{
     display: flex;
     gap:40px;
+}
+// toggle
+#btnToggle{
+  display: none;
+}
+label{
+	display: block;
+	position: relative;
+	width: 40px;
+	height: 24px;
+	background: gray;
+	border-radius: 40px;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+label:after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 18px;
+	height: 18px;
+	background: #fff;
+	border-radius: 50%;
+	transition: 0.3s;
+}
+input:checked + label {
+	background: lightcoral;
+}
+input:checked + label:after {
+	left: calc(100% - 3px);
+	transform: translateX(-100%);
+}
+
+.mobileNav{
+    display: none;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    span{
+        display: block;
+        position:absolute;
+        left: 5px;
+        top: 20px;
+        width: 30px;
+        height: 2px;
+        background-color: black;
+        transform:translate(0, -50%);
+        transition:all 0.5s;
+    }
+    span:first-child{
+        top: 8px;
+    }
+    span:last-child{
+        top: 32px;
+    }
+    
+}
+.mobileNav.on{
+	span:first-child{ top:19px; transform:rotate(45deg);}
+	span:last-child{ top: 19px; transform:rotate(-45deg);}
+}
+@media (max-width: 576px) {
+    .navBar{
+        padding:2%;
+    }
+    .navList{
+        position: absolute;
+        left: 0;
+        padding: 120px 40px 0 20px;
+        height: 100%;
+        flex-direction: column;
+        top:0px;
+        background-color: seagreen;
+        z-index: -1;
+    }
+    .mobileNav{
+        display: block;
+    }
 }
 </style>

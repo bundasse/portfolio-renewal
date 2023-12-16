@@ -22,15 +22,15 @@ function sendEmail() {
     <h2 class="title">연락처</h2>
     <form ref="form" @submit.prevent="sendEmail">
       <div>
-          <div class="sec2">
+          <div class="formLine">
               <label for="user_name">이름<span>Name</span></label>
               <input type="text" name="name" id="user_name" required>
           </div>
-          <div class="sec2">
+          <div class="formLine">
               <label for="user_email">메일 주소<span>E-mail address</span></label>
               <input type="text" name="email" id="user_email" required>
           </div>
-          <div class="sec1">
+          <div class="formLine">
               <label for="message">메세지 내용<span>Message</span></label>
               <textarea id="message" name="message" required></textarea>
           </div>
@@ -41,5 +41,18 @@ function sendEmail() {
   </div>
 </template>
 
-<style>
+<style lang="scss">
+.formLine{
+  display: flex;
+  flex-wrap: wrap;
+  label{
+    flex-basis: 30%;
+  }
+  input{
+    flex-basis: 70%;
+  }
+  textarea{
+    flex-basis: 100%;
+  }
+}
 </style>

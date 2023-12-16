@@ -2,14 +2,20 @@
 *{
   font-family: 'Pretendard Variable';
 }
+body{
+  margin: 0;
+}
 ul, ol{
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 a{
   text-decoration: none;
   color:inherit;
 }
 .wrapper{
-  max-width: 1280px;
+  max-width: 980px;
   margin: 0 auto;
+
 }
