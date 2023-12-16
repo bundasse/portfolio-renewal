@@ -42,7 +42,7 @@ function mobileNavOn(e) {
 #btnToggle{
   display: none;
 }
-label{
+.toggle label{
 	display: block;
 	position: relative;
 	width: 40px;
@@ -52,7 +52,7 @@ label{
 	text-indent: -9999px;
 	cursor: pointer;
 }
-label:after {
+.toggle label:after {
 	content: '';
 	position: absolute;
 	top: 3px;
@@ -63,10 +63,10 @@ label:after {
 	border-radius: 50%;
 	transition: 0.3s;
 }
-input:checked + label {
+.toggle input:checked + label {
 	background: lightcoral;
 }
-input:checked + label:after {
+.toggle input:checked + label:after {
 	left: calc(100% - 3px);
 	transform: translateX(-100%);
 }
