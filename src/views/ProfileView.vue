@@ -49,7 +49,8 @@ function getImageUrl(name) {
   padding:8px;
   gap:4px;
   align-items: center;
-  background-color: lemonchiffon;
+  background-color: olivedrab;
+  color:white;
   margin: 0;
   img{
   width:20px;
