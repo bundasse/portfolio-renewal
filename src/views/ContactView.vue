@@ -45,6 +45,7 @@ function sendEmail() {
 .formLine{
   display: flex;
   flex-wrap: wrap;
+  row-gap: 20px;
   label{
     flex-basis: 30%;
   }
