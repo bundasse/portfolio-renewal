@@ -2,16 +2,24 @@
 import { ref } from 'vue'
 
 const count = ref(0)
+const navOn = ref(true)
 function mobileNavOn(e) {
-    e.target.classList.toggle('on')
-    
+        navOn.value = !navOn.value
+        e.currentTarget.classList.toggle('on')
 }
+window.addEventListener('resize',function () {
+    if(window.innerWidth < 576){
+        navOn.value = false
+    }else{
+        navOn.value = true
+    }
+})
 </script>
 
 <template>
     <div class="wrapper navBar">
         <h1>로고</h1>
-        <ul class="navList">
+        <ul class="navList" v-if="navOn">
             <li><router-link to="/">처음으로</router-link></li>
             <li><router-link to="/profile">프로필</router-link></li>
             <li><router-link to="/portfolio">포트폴리오</router-link></li>
@@ -109,15 +117,20 @@ function mobileNavOn(e) {
     .navList{
         position: absolute;
         left: 0;
-        padding: 120px 40px 0 20px;
+        padding: 120px 80px 0 20px;
         height: 100%;
         flex-direction: column;
         top:0px;
         background-color: seagreen;
         z-index: -1;
     }
+    .toggle{
+        order:2;
+    }
     .mobileNav{
         display: block;
+        z-index: 1;
+        order:-1;
     }
 }
 </style>
