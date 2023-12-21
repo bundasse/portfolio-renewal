@@ -19,3 +19,8 @@ a{
   margin: 0 auto;
 
 }
+@media (max-width: 576px) {
+  .wrapper{
+    padding: 0 2%;
+  }
+}

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const count = ref(0)
 const navOn = ref(true)
@@ -7,6 +7,11 @@ function mobileNavOn(e) {
         navOn.value = !navOn.value
         e.currentTarget.classList.toggle('on')
 }
+onMounted(() => {
+    if(window.innerWidth < 576){
+        navOn.value = false
+    }
+})
 window.addEventListener('resize',function () {
     if(window.innerWidth < 576){
         navOn.value = false
@@ -18,21 +23,29 @@ window.addEventListener('resize',function () {
 
 <template>
     <div class="wrapper navBar">
-        <h1>로고</h1>
-        <ul class="navList" v-if="navOn">
-            <li><router-link to="/">처음으로</router-link></li>
-            <li><router-link to="/profile">프로필</router-link></li>
-            <li><router-link to="/portfolio">포트폴리오</router-link></li>
-            <li><router-link to="/contact">연락처</router-link></li>
-        </ul>
+        <div class="navLeft">
+            <h1>로고</h1>
+            <ul class="navList">
+                <li><router-link to="/">처음으로</router-link></li>
+                <li><router-link to="/profile">프로필</router-link></li>
+                <li><router-link to="/portfolio">포트폴리오</router-link></li>
+                <li><router-link to="/contact">연락처</router-link></li>
+            </ul>
+        </div>
         <div class="toggle">
             <input type="checkbox" name="btnToggle" id="btnToggle">
             <label for="btnToggle"></label>
         </div>
-        <button class="mobileNav" @click="mobileNavOn">
+        <button class="mobileNavButton" @click="mobileNavOn">
             <span v-for="e in 3" :key="e"></span>
         </button>
     </div>
+    <ul class="mobileNavList" v-if="navOn">
+            <li><router-link to="/">처음으로</router-link></li>
+            <li><router-link to="/profile">프로필</router-link></li>
+            <li><router-link to="/portfolio">포트폴리오</router-link></li>
+            <li><router-link to="/contact">연락처</router-link></li>
+    </ul>
 </template>
 
 <style lang="scss">
@@ -40,7 +53,12 @@ window.addEventListener('resize',function () {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
+    background-color: white;
+}
+.navLeft{
+    display: flex;
+    align-items: center;
+    gap:80px;
 }
 .navList{
     display: flex;
@@ -79,7 +97,7 @@ window.addEventListener('resize',function () {
 	transform: translateX(-100%);
 }
 
-.mobileNav{
+.mobileNavButton{
     display: none;
     position: relative;
     width: 40px;
@@ -104,33 +122,47 @@ window.addEventListener('resize',function () {
     span:last-child{
         top: 32px;
     }
-    
 }
-.mobileNav.on{
+.mobileNavButton.on{
 	span:first-child{ top:19px; transform:rotate(45deg);}
 	span:last-child{ top: 19px; transform:rotate(-45deg);}
 }
+.mobileNavList{
+    display: none;
+}
 @media (max-width: 576px) {
     .navBar{
-        padding:2%;
+        padding: 10px 2%;
+        position: relative;
+        border-bottom: 1px solid seagreen;
+        background-color: white;
+        z-index: 3;
+    }
+    h1{
+        display: none;
     }
     .navList{
-        position: absolute;
-        left: 0;
-        padding: 120px 80px 0 20px;
-        height: 100%;
-        flex-direction: column;
-        top:0px;
-        background-color: seagreen;
-        z-index: -1;
+        display: none;
     }
     .toggle{
         order:2;
     }
-    .mobileNav{
+    .mobileNavButton{
         display: block;
-        z-index: 1;
+        z-index: 2;
         order:-1;
+    }
+    .mobileNavList{
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        left: 0;
+        top:0px;
+        height: 100%;
+        padding: 120px 80px 0 20px;
+        gap:40px;
+        background-color: seagreen;
+        z-index: 1;
     }
 }
 </style>

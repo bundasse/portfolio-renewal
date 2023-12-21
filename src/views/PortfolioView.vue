@@ -69,4 +69,9 @@ const count = ref(0)
   background-color: royalblue;
   color: #fff;
 }
+@media (max-width: 600px) {
+  .descArea img{
+    width:100%;
+  }
+}
 </style>
