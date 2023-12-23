@@ -7,7 +7,7 @@ const count = ref(0)
 <template>
   <div class="wrapper">
     <h2 class="title">포트폴리오</h2>
-    <div class="portfolioContents">
+    <div class="portItem" style="background-image: url('https://cdn.pixabay.com/photo/2018/05/18/15/30/web-design-3411373_1280.jpg'); background-size: cover;">
       <h4 class="portTitle">타이틀</h4>
       <p class="portSubtext">
         <span>작업기간</span>
@@ -15,7 +15,6 @@ const count = ref(0)
         <span>태그</span>
       </p>
       <div class="descArea">
-        <img src="https://placehold.co/600x400" alt="image">
         <div class="portDesc">
           <p>소개문구</p>
           <div class="portLink">
@@ -30,9 +29,35 @@ const count = ref(0)
 </template>
 
 <style>
+.portItem{
+  position: relative;
+  padding:20px;
+  border-radius: 20px;
+  overflow: hidden;
+  color: white;
+}
+.portItem::after{
+  position: absolute;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  left:0;
+  top:0;
+  background-color: black;
+  opacity: 0.6;
+}
+.portTitle{
+  position: relative;
+  font-size: 1.5rem;
+  z-index: 1;
+}
 .portSubtext{
   display: flex;
+  position: relative;
+  margin: 0;
   gap:20px;
+  z-index: 1;
 }
 .portSubtext span{
   display: inline-block;
@@ -52,8 +77,10 @@ const count = ref(0)
   display: none;
 }
 .descArea{
+  position: relative;
   display: flex;
   gap: 20px;
+  z-index: 1;
 }
 .portLink{
   display: flex;
@@ -70,8 +97,6 @@ const count = ref(0)
   color: #fff;
 }
 @media (max-width: 600px) {
-  .descArea img{
-    width:100%;
-  }
+
 }
 </style>
