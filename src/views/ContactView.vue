@@ -20,7 +20,7 @@ function sendEmail() {
 <template>
   <div class="wrapper">
     <h2 class="title">연락처</h2>
-    <form ref="form" @submit.prevent="sendEmail">
+    <form ref="form" class="form" @submit.prevent="sendEmail">
       <div>
           <div class="formLine">
               <label for="user_name">이름<span>Name</span></label>
@@ -42,6 +42,16 @@ function sendEmail() {
 </template>
 
 <style lang="scss">
+.form{
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  padding: 20px;
+  border: 1px solid red;
+}
+.form>div{
+  flex-basis: 80%;
+}
 .formLine{
   display: flex;
   flex-wrap: wrap;
@@ -55,5 +65,10 @@ function sendEmail() {
   textarea{
     flex-basis: 100%;
   }
+}
+.form>button{
+  flex-basis: 15%;
+  background-color: olivedrab;
+  color:white;
 }
 </style>
