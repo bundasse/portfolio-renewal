@@ -35,8 +35,8 @@ function sendEmail() {
               <label for="message">메세지 내용<span>Message</span></label>
               <textarea id="message" name="message" required></textarea>
           </div>
+          <p v-if="mailSuccess" class="reply">메시지가 성공적으로 전송되었습니다. 1~2일 이내에 확인 후 답변드리겠습니다.</p>
       </div>
-      <!-- <p v-if="mailSuccess" class="reply">메시지가 성공적으로 전송되었습니다. 1~2일 이내에 확인 후 답변드리겠습니다.</p> -->
       <button class="submit">전송</button>
     </form>
   </div>
