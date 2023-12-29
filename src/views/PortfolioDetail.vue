@@ -18,8 +18,9 @@ const sideOn = ref(true)
     웹페이지 띄울거임
     <div v-if="sideOn" class="portSide">
       <button @click="sideOn = false">닫기</button>
-
       여긴 옆에 설명뜨는 창
+      왱알왱알
+      어떤 기술스택을 사용했는지, 무엇을 공부했는지, 문제해결사례같은 것을 주로 적을 것.
     </div>
   </div>
 </template>
