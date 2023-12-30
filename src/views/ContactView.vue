@@ -72,12 +72,12 @@ function sendEmail() {
     flex-basis: 100%;
   }
 }
-.form>button{
+.submit{
   flex-basis: 20%;
   background-color: olivedrab;
   color:white;
 }
-.form>button.on{
+.submit.on{
   animation-duration: 3s;
   animation-name: ticket;
   animation-fill-mode: forwards;

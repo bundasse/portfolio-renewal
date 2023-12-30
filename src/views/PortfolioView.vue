@@ -17,11 +17,6 @@ const count = ref(0)
       <div class="descArea">
         <div class="portDesc">
           <p>소개문구</p>
-          <div class="portLink">
-            <a href="#">링크1</a>
-            <a href="#">링크2</a>
-            <a href="#">링크3</a>
-          </div>
         </div>
       </div>
     </div>
